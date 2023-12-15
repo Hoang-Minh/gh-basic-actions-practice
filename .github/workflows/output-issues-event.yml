@@ -1,0 +1,12 @@
+name: Ouptut issues event
+on: issues
+jobs:
+    output-info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output issue info
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      console.log(`Issue title: ${github.context.payload.issue.title}`);
+                      console.log(`Issue body: ${github.context.payload.issue.body}`);
